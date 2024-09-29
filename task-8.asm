@@ -13,11 +13,11 @@
 	BRA LoopNeg 
 
 
-LoopPos LDA COUNT
+LoopPos LDA COUNT 	; Loop for handling positive dividend
 	BRP PosC
 	BRA NegC
 	 	
-PosC	LDA RESULT
+PosC	LDA RESULT	; Part of the loop for positive divisor
 	ADD ONE
 	STA RESULT
 	LDA DIV
@@ -27,7 +27,7 @@ PosC	LDA RESULT
 	BRP LoopPos
 	BRA NULL
 
-NegC	LDA RESULT
+NegC	LDA RESULT	; Part of the loop for negative divisor
 	SUB ONE
 	STA RESULT
 	LDA DIV
@@ -38,11 +38,11 @@ NegC	LDA RESULT
 	BRA NULL
 
 
-LoopNeg LDA COUNT
+LoopNeg LDA COUNT	; Loop for handling negative dividend
 	BRP NPosC
 	BRA NNegC
 	 	
-NPosC	LDA RESULT
+NPosC	LDA RESULT	; Part of the loop for positive divisor
 	SUB ONE
 	STA RESULT
 	LDA DIV
@@ -51,7 +51,7 @@ NPosC	LDA RESULT
 	BRP NULL
 	BRA LoopNeg
 
-NNegC	LDA RESULT
+NNegC	LDA RESULT	; Part of the loop for negative divisor
 	ADD ONE
 	STA RESULT
 	LDA DIV
